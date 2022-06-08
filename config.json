@@ -1,0 +1,34 @@
+{
+    "time": {
+        "interval_seconds": 300,
+        "start": 0,
+        "end": 24
+    },
+    "storage": {
+        "hostname": "localhost",
+        "port": "8086",
+        "database": "growlab_breizhcamp"
+    },
+    "preview":{
+        "directory":"/home/pi/growlab-live"
+    },
+    "images": {
+        "output_directory": "/home/pi/timelapse/",
+        "encoding": "jpeg",
+        "width": 2592,
+        "height": 1944,
+        "image_quality": 100,
+        "preview_seconds": 1,
+        "vertical_flip": true,
+        "horizontal_flip": false,
+        "meter_mode": "matrix"
+    },
+    "text": {
+        "colour": {
+            "red": 100,
+            "green": 255,
+            "blue": 100
+        },
+        "size": 52
+    }
+}

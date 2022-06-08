@@ -1,0 +1,45 @@
+version: "2.0"  
+networks:
+  bzh-network:
+    driver: bridge
+    
+services:  
+  influx:
+    image: influxdb:1.8
+    ports:
+     - "8083:8083"
+     - "8086:8086"
+    environment:
+      INFLUXDB_USER: user
+      INFLUXDB_PASS: pass
+      INFLUXDB_DB: growlab_breizhcamp
+    volumes:
+    # Data persistency
+     - /home/pi/data/influxdb:/var/lib/influxdb
+    networks:
+     - bzh-network
+  grafana:
+    image: grafana/grafana
+    environment:
+     - INFLUXDB_USER=user
+     - INFLUXDB_PASS=pass
+     - INFLUXDB_NAME=growlab_breizhcamp
+     
+    volumes:
+    # Data persistency
+     - /home/pi/data/grafana:/var/lib/grafana
+    ports:
+     - "3000:3000"
+    links:
+     - influx
+    depends_on:
+     - influx
+    networks:
+     - bzh-network
+  nginx: 
+    image: nginx:alpine
+    ports: 
+      - "8080:8080"
+      - "80:80"
+    volumes : 
+     - /home/pi/growlab-live:/usr/share/nginx/html
