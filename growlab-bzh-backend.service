@@ -1,0 +1,18 @@
+# /etc/systemd/system/growlab-breizhcamp.service
+
+[Unit]
+Description=Docker Compose Service for growlab-breizhcamp backend (Influx + Grafana + Nginx)
+Requires=docker.service
+After=docker.service
+
+[Service]
+WorkingDirectory=/home/pi/growlab-breizhcamp
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop=/usr/local/bin/docker-compose down
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

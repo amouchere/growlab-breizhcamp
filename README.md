@@ -41,6 +41,12 @@ git clone git@github.com:amouchere/growlab-breizhcamp.git
 cd ~/growlab-breizcamp
 ./install.sh
 ```
+### Utilisation
+
+Un Grafana exposant les métriques est accessible sur http://localhost:3000
+
+La page Live du growlab est accessible sur http://localhost:80
+
 
 ### Hardware 
 

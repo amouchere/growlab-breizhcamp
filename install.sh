@@ -71,3 +71,12 @@ sudo cp ~/growlab-watering/watering.service /etc/systemd/system/watering.service
 sudo systemctl enable watering.service
 sudo systemctl start watering.service
 
+# Installation des services backend du breizhcamp growlab
+sudo cp ~/growlab-breizhcamp/growlab-bzh-backend.service /etc/systemd/system/growlab-bzh-backend.service
+sudo systemctl enable growlab-bzh-backend.service
+sudo systemctl start growlab-bzh-backend.service
+
+# Installation du programme python growlab breizhcamp
+sudo cp ~/growlab-breizhcamp/growlab-bzh-python.service /etc/systemd/system/growlab-bzh-python.service
+sudo systemctl enable growlab-bzh-python.service
+sudo systemctl start growlab-bzh-python.service

@@ -1,0 +1,15 @@
+[Unit]
+Description=Breizcamp Growlab
+After=multi-user.target
+
+[Service]
+Type=idle
+WorkingDirectory=/home/pi/growlab-breizhcamp
+ExecStart=/usr/bin/python3 /home/pi/growlab-breizhcamp/app.py
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
