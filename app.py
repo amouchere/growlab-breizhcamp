@@ -49,7 +49,7 @@ def main():
         hour = datetime_Paris.hour
 
         if (config["time"]["start"] <= hour <= config["time"]["end"]):
-            logging.info("Current hour: {}. A capture is possible.")
+            logging.info("Current hour: {}. A capture is possible.", hour)
             logging.info("New capture in progress ... ")
             # get sensors data
             readings = capt.get_readings()
@@ -91,4 +91,5 @@ if __name__ == "__main__":
             main()
         except Exception as e:
             logging.error(type(e).__name__)
+            logging.exception('')
             raise e
