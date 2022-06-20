@@ -10,6 +10,7 @@ TimeoutStartSec=0
 Restart=on-failure
 StartLimitIntervalSec=60
 StartLimitBurst=3
+User=pi
 
 [Install]
 WantedBy=multi-user.target
