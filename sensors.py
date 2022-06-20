@@ -38,12 +38,15 @@ class sensors:
         serialOutput = serialArduino.readline()
         serialOutput = str(serialOutput, 'ascii')
         self.logger.info("Data from nano: {}".format(serialOutput))
-        serialOutput = serialOutput.replace(' ', '')
-        serialOutput = serialOutput.replace('\r\n', '')
-        serialOutputArray = serialOutput.split("-")
-        soilHumidityNano = serialOutputArray[0].replace('hum:', '')
-        luxNano = serialOutputArray[1].replace('lux:', '')
-        soilHumiditypercentNano = serialOutputArray[2].replace('humpercent:', '')
+        try:
+            serialOutput = serialOutput.replace('\r\n', '')
+            serialOutputArray = serialOutput.split(" - ")
+            soilHumidityNano = float(serialOutputArray[0].replace('hum:', '').replace(' ', ''))
+            luxNano = float(serialOutputArray[1].replace('lux:', '').replace(' ', ''))
+            soilHumiditypercentNano = float(serialOutputArray[2].replace('humpercent:', '').replace(' ', ''))
+        except Exception as e:
+            logging.exception('')
+        
 
         # # BMP280
         # Ignore first result since it seems stale
