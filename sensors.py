@@ -22,8 +22,10 @@ class sensors:
 
     def get_readings(self):
 
-        # DHT22
+        # DHT22 (La fonction normalize sert à ignorer certaines valeurs extremes)
         humidityDHT22, temperatureDHT22 = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+        humidityDHT22 = self.normalize(humidityDHT22, 0, 100)
+        temperatureDHT22 = self.normalize(temperatureDHT22, 0, 50)
 
         tz_Paris = pytz.timezone('Europe/Paris')
         datetime_Paris = datetime.now(tz_Paris)
@@ -68,6 +70,11 @@ class sensors:
             "time_tz_Paris": time_tz_Paris
         }
 
+    def normalize(self, value, minValue, maxValue):
+        if (value > minValue and value < maxValue):
+            return value
+        else : 
+            return -1
 
 
 
