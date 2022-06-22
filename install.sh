@@ -48,6 +48,9 @@ curl -sSL https://github.com/googlefonts/roboto/releases/download/v2.138/roboto-
 unzip roboto.zip -d roboto
 rm roboto.zip
 
+# growlab preview static resources
+cp ~/growlab-breizhcamp/static/*.* ~/growlab-live/
+
 # growlab python dependencies
 sudo pip3 install -r ~/growlab-breizhcamp/requirements.
 
