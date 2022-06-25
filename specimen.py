@@ -63,7 +63,7 @@ class specimen:
         vals["time"] = readings["time_tz_Paris"]
         vals["temperature"] = "{:05.2f}{}C".format(readings["temperatureDHT22"], degree_symbol)
         vals["humidity"] = "{:05.2f}%".format(readings["humidityDHT22"])
-        vals["brightness"] = "{:05.2f}%".format(readings["brightnessNano"])
+        vals["brightness"] = "{:05.2f}".format(readings["brightnessNano"])
         vals["uid"] = "{}".format(time.time())
 
         html = template.render(vals)
